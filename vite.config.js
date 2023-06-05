@@ -1,3 +1,6 @@
+import { defineConfig } from 'vite';
+import path from 'path';
+
 const isCodeSandbox = 'SANDBOX_URL' in process.env || 'CODESANDBOX_HOST' in process.env
 
 export default {
@@ -11,8 +14,17 @@ export default {
     },
     build:
     {
-        outDir: '../dist',
+        outDir: getBuildOutputDir(),
         emptyOutDir: true,
         sourcemap: true
     }
+}
+
+
+function getBuildOutputDir() {
+  const currentDir = process.cwd(); // Get the current working directory
+  const upperCurrentDir = path.resolve(currentDir + "/../")
+  const directoryName = path.basename(currentDir); // Get the name of the directory
+
+  return `../dist/${directoryName}`; // Use the directory name as a separate build folder
 }
