@@ -1,6 +1,7 @@
 console.log("Testing JS")
 
-import * as THREE from 'https://unpkg.com/three@0.153.0/build/three.module.js'
+// import * as THREE from 'https://unpkg.com/three@0.153.0/build/three.module.js'
+import * as THREE from 'three'
 console.log(THREE)
 
 const cube1 = new THREE.Mesh(
